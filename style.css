@@ -12,7 +12,6 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  /* width: 100vw; */
   height: 100vh;
   margin: 0;
   padding: 0;
@@ -57,6 +56,7 @@ main{
   align-items: flex-start;
   padding: 40px;
   position: relative;
+  gap: 15px;
 }
 h1{
   font-size: 14px;
@@ -70,15 +70,31 @@ h1 span{
 }
 h2{
   position: absolute;
-  visibility: hidden;
+  color: hsl(229, 57%, 11%);
+  background-color: hsl(243, 100%, 93%);
+  padding: 20px;
+  top:-20%;
+  right: 10%;
+  border-radius: 10px;
 }
-
+h2::after{
+  content: '';
+  width: 0;
+  height: 0;
+  border: 0px solid transparent;
+  border-left: 20px solid transparent;
+  border-top: 20px solid hsl(243, 100%, 93%);
+  position: absolute;
+  bottom: -20%;
+}
+h2 span{
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 400;
+}
 .progress{
   position: relative;
   width: 100%;
-  /* display: flex; */
-  /* justify-content: space-between; */
-
 }
 .bar{
   background-color: hsl(229, 57%, 11%);
@@ -95,7 +111,6 @@ h2{
   border-radius: 10px;
 }
 .round{
-  
   height: 14px;
   background-color: hsl(243, 100%, 93%);
   width: 14px;
@@ -103,12 +118,39 @@ h2{
   top:0;
   right: 20%;
   border-radius: 50%;
-  
 }
-
-
 .text{
   color: hsl(243, 100%, 93%);
   font-size: 14px;
   font-weight: 700;
+  position: absolute;
+  top:18px
+}
+.start{
+  left: 0;
+}
+.end{
+  right: 0;
+}
+
+
+@media screen and (max-width:800px) {
+  body{
+    background-image: url('./images/bg-mobile.png');
+    background-position: top left;
+    background-size: cover;
+  }
+  main{
+    flex-direction: column;
+  }
+  .image{
+    width: 100%;
+  }
+  h2{
+    top:90%;
+    right: 40%;
+  }
+  h2::after{
+    display: none;
+  }
 }
